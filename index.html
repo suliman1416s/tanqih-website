@@ -1,15 +1,17 @@
-<!DOCTYPE html>
+---
+---
+{% assign c = site.data.content %}<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>شركة تنقيح للمحاماة والاستشارات القانونية | الرياض</title>
-<meta name="description" content="شركة تنقيح للمحاماة والاستشارات القانونية — مرخصة من وزارة العدل (ترخيص رقم 451933). ترافع قضائي، صياغة عقود، استشارات قانونية، تحكيم وأوقاف. الرياض – حي النرجس.">
+<title>{{ c.seo.title }}</title>
+<meta name="description" content="{{ c.seo.description }}">
 <meta property="og:title" content="شركة تنقيح للمحاماة والاستشارات القانونية">
-<meta property="og:description" content="خدمات قانونية باحترافية عالية وجودة مميزة — الرياض، حي النرجس. اطلب استشارتك الآن.">
+<meta property="og:description" content="{{ c.seo.description }}">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ar_SA">
-<meta property="og:image" content="assets/img/logo-vertical.png">
+<meta property="og:image" content="https://tanqih.sa/assets/img/logo-vertical.png">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,8 +23,8 @@
   "@type": "LegalService",
   "name": "شركة تنقيح للمحاماة والاستشارات القانونية",
   "alternateName": "Tanqih Law Firm and Legal Consultancy",
-  "description": "شركة محاماة واستشارات قانونية مرخصة من وزارة العدل السعودية — ترافع، عقود، استشارات، تحكيم، أوقاف.",
-  "telephone": "+966566877335",
+  "description": {{ c.seo.description | jsonify }},
+  "telephone": "{{ c.contact.phone_e164 }}",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "طريق أنس بن مالك، حي النرجس",
@@ -31,12 +33,37 @@
   },
   "geo": { "@type": "GeoCoordinates", "latitude": 24.8352002, "longitude": 46.6825933 },
   "openingHours": "Su-Th 08:00-16:00",
-  "image": "assets/img/logo-vertical.png",
+  "image": "https://tanqih.sa/assets/img/logo-vertical.png",
   "priceRange": "$$"
 }
 </script>
 </head>
-<body>
+<body data-whatsapp="{{ c.contact.whatsapp }}">
+
+<!-- ===== SVG icon sprite ===== -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="ic-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="ic-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="ic-shield" viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7l7-4z"/><path d="M9.5 12l2 2 3.5-4"/></symbol>
+  <symbol id="ic-gavel" viewBox="0 0 24 24"><path d="M14 13l7 7"/><path d="M9 4l7 7"/><path d="M6.5 6.5l4-4 7 7-4 4z"/><path d="M3 21h8"/></symbol>
+  <symbol id="ic-chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H4l2-3a8 8 0 1 1 15-5z"/><path d="M8.5 11h.01M12 11h.01M15.5 11h.01"/></symbol>
+  <symbol id="ic-contract" viewBox="0 0 24 24"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5"/><path d="M9 13h6M9 17h4"/></symbol>
+  <symbol id="ic-building" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 21v-4h6v4"/><path d="M8 7h.01M12 7h.01M16 7h.01M8 11h.01M12 11h.01M16 11h.01"/></symbol>
+  <symbol id="ic-scale" viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M8 21h8"/><path d="M5 7l14-2"/><path d="M5 7l-2.5 6a3 3 0 0 0 5 0z"/><path d="M19 5l-2.5 6a3 3 0 0 0 5 0z"/></symbol>
+  <symbol id="ic-people" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7"/><path d="M17.5 14.5a6.5 6.5 0 0 1 4 5.5"/></symbol>
+  <symbol id="ic-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></symbol>
+  <symbol id="ic-coins" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.66 3.13 3 7 3s7-1.34 7-3V6"/><path d="M5 12v6c0 1.66 3.13 3 7 3s7-1.34 7-3v-6"/></symbol>
+  <symbol id="ic-handshake" viewBox="0 0 24 24"><path d="M2 9l4-4 5 2 5-2 4 4-2 2 .5 5.5L14 19l-2-2-2 2-4.5-2.5L6 11z"/><path d="M11 7L7.5 10.5a1.4 1.4 0 0 0 2 2L12 10l2.5 2.5"/></symbol>
+  <symbol id="ic-mosque" viewBox="0 0 24 24"><path d="M12 3c0 2-3 3-3 6h6c0-3-3-4-3-6z"/><path d="M4 21V11h16v10"/><path d="M4 11c0-1.5 1.5-2 2-2h12c.5 0 2 .5 2 2"/><path d="M10 21v-4a2 2 0 1 1 4 0v4"/></symbol>
+  <symbol id="ic-tree" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="18" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="M12 7.5V12M12 12l-5.5 4M12 12l5.5 4"/></symbol>
+  <symbol id="ic-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 1 3.5 10.9c-.8.6-1.5 1.6-1.5 2.6v.5h-4v-.5c0-1-.7-2-1.5-2.6A6 6 0 0 1 12 3z"/></symbol>
+  <symbol id="ic-gov" viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M4 18h16V10H4z"/><path d="M2 10h20L12 3z"/><path d="M8 14h.01M12 14h.01M16 14h.01"/></symbol>
+  <symbol id="ic-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.27a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></symbol>
+  <symbol id="ic-card" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9h4M7 12h6M7 15h3"/></symbol>
+  <symbol id="ic-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="ic-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="ic-wa" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.1 4.49.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35z"/><path fill="currentColor" stroke="none" d="M12.05 2C6.58 2 2.13 6.45 2.13 11.92c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.92A9.86 9.86 0 0 0 12.05 2zm0 18.17a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24a8.2 8.2 0 0 1 8.24 8.25c0 4.54-3.7 8.23-8.25 8.23z"/></symbol>
+</svg>
 
 <!-- ===== Header ===== -->
 <header class="site-header" id="top">
@@ -64,18 +91,16 @@
   <div class="hero-pattern" aria-hidden="true"></div>
   <img src="assets/img/logo-mark-white.png" alt="" class="hero-mark" aria-hidden="true">
   <div class="container hero-inner">
-    <p class="hero-kicker reveal"><span class="badge-dot"></span> مرخصة من وزارة العدل — ترخيص محاماة رقم 451933</p>
-    <h1 class="reveal">شركة تنقيح <span class="gold">للمحاماة</span><br>والاستشارات القانونية</h1>
-    <p class="hero-lede reveal">نُقدّم الخدمات القانونية بجودة عالية وتعاملٍ احترافي — من الترافع أمام كافة المحاكم، إلى صياغة العقود واللوائح، والاستشارات القانونية، والتحكيم، والأوقاف.</p>
+    <p class="hero-kicker reveal"><span class="badge-dot"></span> {{ c.hero.badge }}</p>
+    <h1 class="reveal">{{ c.hero.title_line1 }} <span class="gold">{{ c.hero.title_gold }}</span><br>{{ c.hero.title_line2 }}</h1>
+    <p class="hero-lede reveal">{{ c.hero.lede }}</p>
     <div class="hero-cta reveal">
-      <a href="#consult" class="btn btn-gold btn-lg">اطلب استشارة الآن</a>
-      <a href="#services" class="btn btn-outline btn-lg">استكشف خدماتنا</a>
+      <a href="#consult" class="btn btn-gold btn-lg">{{ c.hero.cta_primary }}</a>
+      <a href="#services" class="btn btn-outline btn-lg">{{ c.hero.cta_secondary }}</a>
     </div>
     <ul class="hero-chips reveal" aria-label="مميزاتنا">
-      <li>سرّية تامة</li>
-      <li>التزام بالمواعيد</li>
-      <li>تقارير دورية</li>
-      <li>فريق متخصص</li>
+      {% for chip in c.hero.chips %}<li>{{ chip }}</li>
+      {% endfor %}
     </ul>
   </div>
 </section>
@@ -84,42 +109,26 @@
 <section class="section" id="about">
   <div class="container">
     <div class="section-head reveal">
-      <p class="section-kicker">من نحن</p>
-      <h2>عن شركة تنقيح</h2>
+      <p class="section-kicker">{{ c.about.kicker }}</p>
+      <h2>{{ c.about.title }}</h2>
     </div>
     <div class="about-grid">
       <div class="about-text reveal">
-        <p>شركة سعودية متخصصة في تقديم الخدمات القانونية، من ترافعٍ قضائي أمام كافة المحاكم، وصياغة العقود واللوائح والاتفاقيات، والمراجعة القانونية، إضافةً إلى الاستشارات القانونية وخدمات الأوقاف والتحكيم في المنازعات.</p>
-        <p>نعمل على تحقيق كل ذلك بجودة عالية وتعاملٍ احترافي مع عملائنا، وفق أعلى معايير المهنة وبما يتوافق مع الأنظمة واللوائح في المملكة العربية السعودية.</p>
+        {% for p in c.about.paragraphs %}<p>{{ p }}</p>
+        {% endfor %}
         <ul class="about-points">
-          <li><span class="check"></span> جودة عالية في المخرجات القانونية</li>
-          <li><span class="check"></span> أداء الأعمال في وقتها المحدد دون تأخير</li>
-          <li><span class="check"></span> فريق عمل مميز ومتخصص</li>
-          <li><span class="check"></span> تقارير دورية توضح مستجدات أعمالكم</li>
+          {% for point in c.about.points %}<li><span class="check"></span> {{ point }}</li>
+          {% endfor %}
         </ul>
       </div>
       <div class="about-cards">
+        {% for card in c.about.cards %}
         <div class="vision-card reveal">
-          <div class="vc-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
-          </div>
-          <h3>رؤيتنا</h3>
-          <p>الريادة في تقديم الخدمات القانونية.</p>
+          <div class="vc-icon"><svg fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-{{ card.icon }}"/></svg></div>
+          <h3>{{ card.title }}</h3>
+          <p>{{ card.text }}</p>
         </div>
-        <div class="vision-card reveal">
-          <div class="vc-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>
-          </div>
-          <h3>رسالتنا</h3>
-          <p>تقديم الخدمة القانونية باحترافية عالية وجودة مميزة.</p>
-        </div>
-        <div class="vision-card reveal">
-          <div class="vc-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7l7-4z"/><path d="M9.5 12l2 2 3.5-4"/></svg>
-          </div>
-          <h3>قيمنا</h3>
-          <p>الأمانة، السرّية، الاحترافية، والالتزام.</p>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </div>
@@ -129,11 +138,19 @@
 <section class="section section-alt" id="services">
   <div class="container">
     <div class="section-head reveal">
-      <p class="section-kicker">ماذا نقدّم</p>
-      <h2>خدماتنا القانونية</h2>
-      <p class="section-sub">حلول قانونية متكاملة للأفراد وقطاع الأعمال</p>
+      <p class="section-kicker">{{ c.services.kicker }}</p>
+      <h2>{{ c.services.title }}</h2>
+      <p class="section-sub">{{ c.services.subtitle }}</p>
     </div>
-    <div class="services-grid" id="servicesGrid"><!-- تُبنى بالجافاسكربت --></div>
+    <div class="services-grid">
+      {% for s in c.services.items %}
+      <article class="service-card reveal">
+        <div class="sc-icon"><svg fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-{{ s.icon }}"/></svg></div>
+        <h3>{{ s.title }}</h3>
+        <p>{{ s.desc }}</p>
+      </article>
+      {% endfor %}
+    </div>
   </div>
 </section>
 
@@ -141,30 +158,17 @@
 <section class="section" id="process">
   <div class="container">
     <div class="section-head reveal">
-      <p class="section-kicker">كيف نعمل</p>
-      <h2>آلية عملنا</h2>
+      <p class="section-kicker">{{ c.process.kicker }}</p>
+      <h2>{{ c.process.title }}</h2>
     </div>
     <ol class="steps">
+      {% for step in c.process.steps %}
       <li class="step reveal">
-        <span class="step-num">1</span>
-        <h3>تواصل معنا</h3>
-        <p>عبر النموذج أو الواتساب أو الاتصال المباشر، وحدّد موضوعك باختصار.</p>
+        <span class="step-num">{{ forloop.index }}</span>
+        <h3>{{ step.title }}</h3>
+        <p>{{ step.text }}</p>
       </li>
-      <li class="step reveal">
-        <span class="step-num">2</span>
-        <h3>دراسة الحالة</h3>
-        <p>نستمع لك بعناية وندرس المستندات ونحدد الموقف القانوني بدقة.</p>
-      </li>
-      <li class="step reveal">
-        <span class="step-num">3</span>
-        <h3>خطة العمل</h3>
-        <p>نقدّم لك خطة واضحة بالإجراءات والمدد والأتعاب قبل البدء.</p>
-      </li>
-      <li class="step reveal">
-        <span class="step-num">4</span>
-        <h3>التنفيذ والمتابعة</h3>
-        <p>ننفّذ بالتزامٍ تام، مع تقارير دورية توضح مستجدات القضية أولًا بأول.</p>
-      </li>
+      {% endfor %}
     </ol>
   </div>
 </section>
@@ -173,30 +177,16 @@
 <section class="section section-alt" id="faq">
   <div class="container container-narrow">
     <div class="section-head reveal">
-      <p class="section-kicker">استفساراتك</p>
-      <h2>الأسئلة الشائعة</h2>
+      <p class="section-kicker">{{ c.faq.kicker }}</p>
+      <h2>{{ c.faq.title }}</h2>
     </div>
     <div class="faq-list">
+      {% for item in c.faq.items %}
       <details class="faq-item reveal">
-        <summary>هل يمكنني الحصول على استشارة قانونية عن بُعد؟</summary>
-        <p>نعم، نقدّم الاستشارات القانونية حضوريًا في مقر الشركة بالرياض، أو عن بُعد عبر الهاتف والاتصال المرئي بما يناسبك.</p>
+        <summary>{{ item.q }}</summary>
+        <p>{{ item.a }}</p>
       </details>
-      <details class="faq-item reveal">
-        <summary>كيف تُحدَّد الأتعاب؟</summary>
-        <p>تُحدَّد الأتعاب بحسب طبيعة القضية أو الخدمة وحجم العمل المطلوب، ونلتزم بالإفصاح الكامل عن الأتعاب وتضمينها في اتفاقية مكتوبة قبل البدء بأي عمل.</p>
-      </details>
-      <details class="faq-item reveal">
-        <summary>هل تضمنون سرّية المعلومات؟</summary>
-        <p>السرّية التامة التزام مهني ونظامي نتقيد به تجاه جميع عملائنا، فجميع ما تشاركه معنا من معلومات ومستندات محفوظ ولا يُطّلع عليه إلا فريق العمل المكلّف.</p>
-      </details>
-      <details class="faq-item reveal">
-        <summary>هل تترافعون أمام جميع المحاكم؟</summary>
-        <p>نعم، نتولى الترافع والتقاضي أمام كافة المحاكم ولجان الفصل في المنازعات في المملكة، بموجب ترخيص المحاماة رقم 451933 الصادر من وزارة العدل.</p>
-      </details>
-      <details class="faq-item reveal">
-        <summary>كيف أتابع مستجدات قضيتي؟</summary>
-        <p>نلتزم بتزويدك بتقارير دورية عن سير أعمالك وقضاياك، إضافة إلى إمكانية التواصل المباشر مع الفريق المكلّف في أي وقت خلال ساعات العمل.</p>
-      </details>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -206,13 +196,12 @@
   <div class="hero-pattern" aria-hidden="true"></div>
   <div class="container consult-inner">
     <div class="consult-text reveal">
-      <p class="section-kicker gold-kicker">جاهزون لخدمتك</p>
-      <h2>اطلب استشارتك الآن</h2>
-      <p>عبّئ النموذج وسيصلنا طلبك مباشرة عبر الواتساب، وسنعاود التواصل معك في أقرب وقت خلال ساعات العمل.</p>
+      <p class="section-kicker gold-kicker">{{ c.consult.kicker }}</p>
+      <h2>{{ c.consult.title }}</h2>
+      <p>{{ c.consult.text }}</p>
       <ul class="consult-points">
-        <li>ردّ سريع خلال ساعات العمل</li>
-        <li>سرّية تامة لجميع البيانات</li>
-        <li>وضوح كامل في الأتعاب قبل البدء</li>
+        {% for point in c.consult.points %}<li>{{ point }}</li>
+        {% endfor %}
       </ul>
     </div>
     <form class="consult-form reveal" id="consultForm" novalidate>
@@ -228,6 +217,9 @@
         <label for="fService">نوع الخدمة</label>
         <select id="fService" name="service">
           <option value="" selected>اختر نوع الخدمة…</option>
+          {% for s in c.services.items %}<option value="{{ s.title }}">{{ s.title }}</option>
+          {% endfor %}
+          <option value="أخرى">أخرى / غير متأكد</option>
         </select>
       </div>
       <div class="field">
@@ -235,10 +227,10 @@
         <textarea id="fMsg" name="message" rows="4" placeholder="اشرح موضوعك باختصار…"></textarea>
       </div>
       <button type="submit" class="btn btn-gold btn-lg btn-block">
-        إرسال الطلب عبر واتساب
-        <svg class="wa-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.1 4.49.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35z"/><path d="M12.05 2C6.58 2 2.13 6.45 2.13 11.92c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.92A9.86 9.86 0 0 0 12.05 2zm0 18.17a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24a8.2 8.2 0 0 1 8.24 8.25c0 4.54-3.7 8.23-8.25 8.23z"/></svg>
+        {{ c.consult.button }}
+        <svg class="wa-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#ic-wa"/></svg>
       </button>
-      <p class="form-note">سيُفتح تطبيق واتساب برسالة جاهزة تحتوي بياناتك — راجعها ثم اضغط إرسال.</p>
+      <p class="form-note">{{ c.consult.note }}</p>
     </form>
   </div>
 </section>
@@ -247,41 +239,41 @@
 <section class="section" id="contact">
   <div class="container">
     <div class="section-head reveal">
-      <p class="section-kicker">يسعدنا تواصلك</p>
-      <h2>تواصل معنا</h2>
+      <p class="section-kicker">{{ c.contact.kicker }}</p>
+      <h2>{{ c.contact.title }}</h2>
     </div>
     <div class="contact-grid">
       <div class="contact-cards">
-        <a class="contact-card reveal" href="tel:+966566877335">
-          <div class="cc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.27a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg></div>
+        <a class="contact-card reveal" href="tel:{{ c.contact.phone_e164 }}">
+          <div class="cc-icon"><svg fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-phone"/></svg></div>
           <h3>الجوال</h3>
-          <p dir="ltr">+966 56 687 7335</p>
+          <p dir="ltr">{{ c.contact.phone_display }}</p>
         </a>
-        <a class="contact-card reveal" href="tel:7052890600">
-          <div class="cc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9h4M7 12h6M7 15h3"/></svg></div>
+        <a class="contact-card reveal" href="tel:{{ c.contact.unified }}">
+          <div class="cc-icon"><svg fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-card"/></svg></div>
           <h3>الرقم الوطني الموحد</h3>
-          <p dir="ltr">705 289 0600</p>
+          <p dir="ltr">{{ c.contact.unified_display }}</p>
         </a>
-        <a class="contact-card reveal" href="https://wa.me/966566877335" target="_blank" rel="noopener">
-          <div class="cc-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.1 4.49.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35z"/><path d="M12.05 2C6.58 2 2.13 6.45 2.13 11.92c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.92A9.86 9.86 0 0 0 12.05 2zm0 18.17a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24a8.2 8.2 0 0 1 8.24 8.25c0 4.54-3.7 8.23-8.25 8.23z"/></svg></div>
+        <a class="contact-card reveal" href="https://wa.me/{{ c.contact.whatsapp }}" target="_blank" rel="noopener">
+          <div class="cc-icon"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#ic-wa"/></svg></div>
           <h3>واتساب</h3>
           <p>راسلنا مباشرة</p>
         </a>
         <div class="contact-card reveal">
-          <div class="cc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <div class="cc-icon"><svg fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-clock"/></svg></div>
           <h3>ساعات العمل</h3>
-          <p>الأحد – الخميس: 8 صباحًا – 4 عصرًا</p>
+          <p>{{ c.contact.hours }}</p>
         </div>
-        <a class="contact-card contact-card-wide reveal" href="https://maps.app.goo.gl/KSFHGPC7mx4ra8Wg7" target="_blank" rel="noopener">
-          <div class="cc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <a class="contact-card contact-card-wide reveal" href="{{ c.contact.maps_link }}" target="_blank" rel="noopener">
+          <div class="cc-icon"><svg fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-pin"/></svg></div>
           <h3>العنوان</h3>
-          <p>الرياض – حي النرجس – طريق أنس بن مالك</p>
+          <p>{{ c.contact.address }}</p>
         </a>
       </div>
       <div class="map-wrap reveal">
         <iframe
           title="موقع شركة تنقيح على الخريطة"
-          src="https://maps.google.com/maps?q=24.8352002,46.6825933&z=16&hl=ar&output=embed"
+          src="{{ c.contact.maps_embed }}"
           loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
       </div>
     </div>
@@ -304,26 +296,26 @@
     </div>
     <div class="footer-col">
       <h4>تواصل معنا</h4>
-      <a href="tel:+966566877335" dir="ltr">+966 56 687 7335</a>
-      <a href="tel:7052890600">الرقم الموحد: <span dir="ltr">7052890600</span></a>
-      <a href="https://maps.app.goo.gl/KSFHGPC7mx4ra8Wg7" target="_blank" rel="noopener">الرياض – حي النرجس – طريق أنس بن مالك</a>
+      <a href="tel:{{ c.contact.phone_e164 }}" dir="ltr">{{ c.contact.phone_display }}</a>
+      <a href="tel:{{ c.contact.unified }}">الرقم الموحد: <span dir="ltr">{{ c.contact.unified }}</span></a>
+      <a href="{{ c.contact.maps_link }}" target="_blank" rel="noopener">{{ c.contact.address }}</a>
     </div>
     <div class="footer-col">
       <h4>بيانات الترخيص</h4>
-      <p>ترخيص محاماة من وزارة العدل رقم 451933</p>
-      <p>السجل الوطني الموحد 7052890600</p>
+      <p>{{ c.footer.license_line1 }}</p>
+      <p>{{ c.footer.license_line2 }}</p>
     </div>
   </div>
   <div class="footer-bottom">
     <div class="container">
-      <p>© <span id="year"></span> شركة تنقيح للمحاماة والاستشارات القانونية — جميع الحقوق محفوظة</p>
+      <p>© <span id="year"></span> {{ c.footer.rights }}</p>
     </div>
   </div>
 </footer>
 
 <!-- ===== Floating WhatsApp ===== -->
-<a href="https://wa.me/966566877335?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1" class="wa-fab" target="_blank" rel="noopener" aria-label="تواصل عبر واتساب">
-  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.1 4.49.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35z"/><path d="M12.05 2C6.58 2 2.13 6.45 2.13 11.92c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.92A9.86 9.86 0 0 0 12.05 2zm0 18.17a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24a8.2 8.2 0 0 1 8.24 8.25c0 4.54-3.7 8.23-8.25 8.23z"/></svg>
+<a href="https://wa.me/{{ c.contact.whatsapp }}?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1" class="wa-fab" target="_blank" rel="noopener" aria-label="تواصل عبر واتساب">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#ic-wa"/></svg>
 </a>
 
 <script src="assets/js/main.js"></script>

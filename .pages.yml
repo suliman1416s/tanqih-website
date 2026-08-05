@@ -1,0 +1,149 @@
+media:
+  input: assets/img
+  output: assets/img
+
+content:
+  - name: content
+    label: محتوى الموقع
+    path: _data/content.yml
+    type: file
+    fields:
+      - name: seo
+        label: إعدادات الظهور في قوقل
+        type: object
+        fields:
+          - { name: title, label: عنوان الموقع (يظهر في نتائج البحث), type: string }
+          - { name: description, label: وصف الموقع (يظهر في نتائج البحث), type: text }
+
+      - name: hero
+        label: الواجهة الرئيسية
+        type: object
+        fields:
+          - { name: badge, label: شارة الترخيص أعلى العنوان, type: string }
+          - { name: title_line1, label: العنوان — الجزء الأول, type: string }
+          - { name: title_gold, label: العنوان — الكلمة الذهبية, type: string }
+          - { name: title_line2, label: العنوان — السطر الثاني, type: string }
+          - { name: lede, label: النص التعريفي, type: text }
+          - { name: cta_primary, label: نص الزر الأساسي, type: string }
+          - { name: cta_secondary, label: نص الزر الثانوي, type: string }
+          - { name: chips, label: المميزات المختصرة, type: string, list: true }
+
+      - name: about
+        label: عن الشركة
+        type: object
+        fields:
+          - { name: kicker, label: العنوان الصغير, type: string }
+          - { name: title, label: العنوان, type: string }
+          - { name: paragraphs, label: فقرات النبذة, type: text, list: true }
+          - { name: points, label: نقاط التميز, type: string, list: true }
+          - name: cards
+            label: بطاقات الرؤية والرسالة والقيم
+            type: object
+            list: true
+            fields:
+              - name: icon
+                label: الأيقونة
+                type: select
+                options:
+                  values:
+                    - { label: عين (رؤية), value: eye }
+                    - { label: هدف (رسالة), value: target }
+                    - { label: درع (قيم), value: shield }
+              - { name: title, label: العنوان, type: string }
+              - { name: text, label: النص, type: text }
+
+      - name: services
+        label: الخدمات
+        type: object
+        fields:
+          - { name: kicker, label: العنوان الصغير, type: string }
+          - { name: title, label: العنوان, type: string }
+          - { name: subtitle, label: الوصف تحت العنوان, type: string }
+          - name: items
+            label: قائمة الخدمات
+            type: object
+            list: true
+            fields:
+              - name: icon
+                label: الأيقونة
+                type: select
+                options:
+                  values:
+                    - { label: مطرقة قاضٍ, value: gavel }
+                    - { label: محادثة, value: chat }
+                    - { label: عقد ومستند, value: contract }
+                    - { label: مبنى شركة, value: building }
+                    - { label: ميزان العدل, value: scale }
+                    - { label: أشخاص, value: people }
+                    - { label: منزل عقار, value: home }
+                    - { label: عملات مالية, value: coins }
+                    - { label: مصافحة, value: handshake }
+                    - { label: مسجد وقف, value: mosque }
+                    - { label: شجرة عائلة, value: tree }
+                    - { label: مصباح فكرة, value: bulb }
+                    - { label: مبنى حكومي, value: gov }
+              - { name: title, label: اسم الخدمة, type: string }
+              - { name: desc, label: وصف الخدمة, type: text }
+
+      - name: process
+        label: آلية العمل
+        type: object
+        fields:
+          - { name: kicker, label: العنوان الصغير, type: string }
+          - { name: title, label: العنوان, type: string }
+          - name: steps
+            label: الخطوات
+            type: object
+            list: true
+            fields:
+              - { name: title, label: عنوان الخطوة, type: string }
+              - { name: text, label: وصف الخطوة, type: text }
+
+      - name: faq
+        label: الأسئلة الشائعة
+        type: object
+        fields:
+          - { name: kicker, label: العنوان الصغير, type: string }
+          - { name: title, label: العنوان, type: string }
+          - name: items
+            label: الأسئلة
+            type: object
+            list: true
+            fields:
+              - { name: q, label: السؤال, type: string }
+              - { name: a, label: الجواب, type: text }
+
+      - name: consult
+        label: قسم طلب الاستشارة
+        type: object
+        fields:
+          - { name: kicker, label: العنوان الصغير, type: string }
+          - { name: title, label: العنوان, type: string }
+          - { name: text, label: النص التوضيحي, type: text }
+          - { name: points, label: النقاط, type: string, list: true }
+          - { name: button, label: نص زر الإرسال, type: string }
+          - { name: note, label: الملاحظة تحت الزر, type: string }
+
+      - name: contact
+        label: بيانات التواصل
+        type: object
+        fields:
+          - { name: kicker, label: العنوان الصغير, type: string }
+          - { name: title, label: العنوان, type: string }
+          - { name: phone_display, label: رقم الجوال (كما يظهر), type: string }
+          - { name: phone_e164, label: رقم الجوال بصيغة دولية +9665XXXXXXXX, type: string }
+          - { name: whatsapp, label: رقم الواتساب بصيغة 9665XXXXXXXX بدون +, type: string }
+          - { name: unified_display, label: الرقم الموحد (كما يظهر), type: string }
+          - { name: unified, label: الرقم الموحد (أرقام فقط), type: string }
+          - { name: hours, label: ساعات العمل, type: string }
+          - { name: address, label: العنوان, type: string }
+          - { name: maps_link, label: رابط خرائط قوقل, type: string }
+          - { name: maps_embed, label: رابط تضمين الخريطة (لا تغيّره إلا للضرورة), type: string }
+
+      - name: footer
+        label: التذييل
+        type: object
+        fields:
+          - { name: license_line1, label: سطر الترخيص الأول, type: string }
+          - { name: license_line2, label: سطر الترخيص الثاني, type: string }
+          - { name: rights, label: نص الحقوق, type: string }
