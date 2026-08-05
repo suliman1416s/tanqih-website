@@ -19,7 +19,6 @@ content:
         label: الواجهة الرئيسية
         type: object
         fields:
-          - { name: badge, label: شارة الترخيص أعلى العنوان, type: string }
           - { name: title_line1, label: العنوان — الجزء الأول, type: string }
           - { name: title_gold, label: العنوان — الكلمة الذهبية, type: string }
           - { name: title_line2, label: العنوان — السطر الثاني, type: string }

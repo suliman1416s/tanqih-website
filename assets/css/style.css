@@ -93,7 +93,7 @@ ul, ol { list-style: none; }
   color: var(--gold-light);
 }
 .badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(173, 150, 95, .25); }
-.hero h1 { font-size: clamp(30px, 5vw, 52px); font-weight: 800; line-height: 1.35; margin-bottom: 22px; }
+.hero h1 { font-size: clamp(26px, 4vw, 42px); font-weight: 800; line-height: 1.4; margin-bottom: 22px; }
 .hero .gold { color: var(--gold-light); }
 .hero-lede { max-width: 720px; margin: 0 auto 36px; font-size: clamp(15px, 2vw, 18px); font-weight: 300; color: rgba(255, 255, 255, .85); }
 .hero-cta { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 44px; }
